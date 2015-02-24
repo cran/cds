@@ -39,7 +39,7 @@ list with the following slots:
 \describe{
  \item{prers}{The pre-response style simulated data}
  \item{postrs}{The data after adding the response styles}
- \item{postbl}{The same as \code{postrs}, for compatibility with \code{\link[muk]{icds}}}
+ \item{postbl}{The same as \code{postrs} in this case}
  \item{Fr.cent.rs}{The centred Fr matrix for \code{postrs}}
  \item{Fr.rs}{The Fr matrix for \code{postrs}}
  \item{Fr.cent.bl}{The same as \code{Fr.cent.rs}, for compatibility with \code{icds}}
@@ -61,7 +61,7 @@ list with the following slots:
 Simulate response data for a group of response styles.
 }
 \seealso{
-\code{\link{createcdsdata}} \code{\link[muk]{icds}}
+\code{\link{createcdsdata}}
 }
 \keyword{multivariate}
 

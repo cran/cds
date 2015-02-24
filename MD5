@@ -1,4 +1,4 @@
-f882df55398eb55121b2baa3cb7f3805 *DESCRIPTION
+50a4a7ee4241f38c46ca4bff3bd6fe85 *DESCRIPTION
 8f9b1fa70c859e9c2a8b7ab6e28846a5 *NAMESPACE
 264c0c240cb2d28cc4316e8355f00aea *R/G.start.R
 ec1e923accacd14b6e14182ca48ceafa *R/Lfun.G.upd.R
@@ -8,7 +8,7 @@ ec1e923accacd14b6e14182ca48ceafa *R/Lfun.G.upd.R
 4408c2d52ff18e4e670e378da2a5f3ea *R/calc.wt.bubbles.R
 59559a21d4beaa888ba24c69643e43bd *R/cds-package.R
 6f7e74c47312709cd8836ac5a7f7e07b *R/cds.R
-384ea1901bdf9c08676ad3e98e309c60 *R/cds.sim.R
+fc14737396cb7688d41764c55e0c6d9c *R/cds.sim.R
 d7fd0ce367f771581c23a15410c51501 *R/cdstoclue.R
 e0835044b24c081ae058a2dad0189f34 *R/clean.scales.R
 605ef145ce9def226531e705635834f3 *R/clean.scales.cds.R
@@ -29,7 +29,7 @@ f3734a7e0f3e3f6e1d8db362fbf66712 *R/print.cds.R
 1a76aca5f36590b05900d48001646d9a *R/print.cdsdata.R
 3c8e71174a3d47d7de02474a25a38e3e *R/rcormat.R
 7d2aaeddf9c977dd19d17875b53fb5e7 *R/rcovmat.R
-7ecc98fa6f533eb9d27ae8b5e2587052 *R/sensory.R
+1a1d284ecdd1bced660d9a84b964d89e *R/sensory.R
 644f8411eb133e39775bc7990870a6af *R/sensory.aux.R
 aca7eed0ead5eca8a8b57313aa4f3a2c *R/simpca.R
 a26c460a36ae16a8ac598568c10d2819 *R/trQnorm.R
@@ -46,7 +46,7 @@ e26596503957b18a47def7d0347db0c1 *man/approxloads.Rd
 8c3e913ffbd078388838ea9694132265 *man/calc.wt.bubbles.Rd
 fe1434cfd04515f0ff0602c0242a1a38 *man/cds-package.Rd
 13f64f299edf408a90e2a44481709117 *man/cds.Rd
-02bff64129f5ef98b63772d0868b7b7b *man/cds.sim.Rd
+8dfa24d6f042b38b00aa70a05a42aa59 *man/cds.sim.Rd
 996fdb089d4ebc5f9195ee5025aaf5d0 *man/cdstoclue.Rd
 de8c19d2df8e91f3960b33bca8e4c01a *man/clean.scales.Rd
 d0b1c9080e7e08d2da19c649b8d09f20 *man/create.ind.Rd
@@ -65,7 +65,7 @@ bd131ac9db862eb9598999d40dcc52a4 *man/ispline.Rd
 b3b0a95bcda346ca91718a49dbfcc738 *man/print.cdsdata.Rd
 50a40c5081a6526ba67e1d6835d6577c *man/rcormat.Rd
 dc582c3795abcdcdd295d7942cb9da81 *man/rcovmat.Rd
-3a2a7c56ac55c096e6d541d847b5cbbb *man/sensory.Rd
+2fd060c3ac97ac3618670c161fb6c5ac *man/sensory.Rd
 94948f7289855372da4ec5c514a5d7e8 *man/sensory.aux.Rd
 e59ea488a206c563cabd0de51fec2fa1 *man/simpca.Rd
 0f985dbfe1689dd4a394cd20618a2fab *man/trQnorm.Rd

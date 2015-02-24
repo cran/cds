@@ -20,7 +20,7 @@
 #' \describe{
 #'  \item{prers}{The pre-response style simulated data}
 #'  \item{postrs}{The data after adding the response styles}
-#'  \item{postbl}{The same as \code{postrs}, for compatibility with \code{\link[muk]{icds}}}
+#'  \item{postbl}{The same as \code{postrs} in this case}
 #'  \item{Fr.cent.rs}{The centred Fr matrix for \code{postrs}}
 #'  \item{Fr.rs}{The Fr matrix for \code{postrs}}
 #'  \item{Fr.cent.bl}{The same as \code{Fr.cent.rs}, for compatibility with \code{icds}}
@@ -38,7 +38,7 @@
 #'  \item{call}{The function call}
 #' }
 #' 
-#' @seealso \code{\link{createcdsdata}} \code{\link[muk]{icds}}
+#' @seealso \code{\link{createcdsdata}}
 #' @keywords multivariate
 #' @export cds.sim
 cds.sim <- function(nr.indv = c(100, 100, 100), m = 25, scales = 1:7, err.coeff = 0.1, 

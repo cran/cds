@@ -1,8 +1,8 @@
 Package: cds
 Type: Package
 Title: Constrained Dual Scaling for Detecting Response Styles
-Version: 1.0
-Date: 2015-02-16
+Version: 1.0.1
+Date: 2015-02-24
 Author: Pieter Schoonees [aut, cre]
 Authors@R: c(person(given = "Pieter", family = "Schoonees", role = c("aut",
     "cre"), email = "schoonees@gmail.com"))
@@ -22,7 +22,7 @@ LazyLoad: yes
 LazyData: yes
 ByteCompile: yes
 License: GPL (>= 2)
-Packaged: 2015-02-16 17:24:39 UTC; pieter
+Packaged: 2015-02-24 10:58:01 UTC; pieter
 NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2015-02-16 19:23:01
+Date/Publication: 2015-02-24 12:56:46
