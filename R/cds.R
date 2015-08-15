@@ -69,6 +69,9 @@
 #' (EI report series EI 2013-10). Rotterdam: Econometric Institute.
 #' @importFrom parallel makePSOCKcluster detectCores clusterSetRNGStream parLapplyLB parLapply 
 #' clusterExport stopCluster clusterExport
+#' @importFrom graphics abline barplot legend matplot par plot points rug symbols
+#' @importFrom methods is
+#' @importFrom stats cor pnorm qnorm quantile rnorm runif
 #' @keywords multivariate
 #' @examples
 #' 
