@@ -27,7 +27,9 @@
 #' @param maxit Maximum number of iterations for the k-means part of the
 #' algorithm.
 #' @param Gstarts Facility to supply a list of explicit starting values for the
-#' grouping matrix G.
+#' grouping matrix G. Each start consists of a two element list: \code{i} giving
+#' and integer number the start, and \code{G} giving the starting configuration
+#' as an indicator matrix.
 #' @param astarts Supply explicit starts for the a vectors, as a list.
 #' @param parallel logical. Should parallelization over starts for the grouping
 #' matrix be used?
@@ -47,6 +49,10 @@
 #' (after the algorithm has converged).
 #' @param tol tolerance \code{tol} passed to \code{\link{lsei}} of the
 #' \pkg{limSolve} package. Defaults to \code{sqrt(.Machine$double.eps)}
+#' @param update.G Logical indicating whether or not to update the G matrix
+#' from its starting configuration. Useful when clustering is known apriori or
+#' not desired.
+#' 
 #' @return Object of class \code{ds} with elements: \item{G}{Grouping indicator
 #' matrix.} \item{K}{Number of groups K.} \item{opt.crit}{Optimum value of the
 #' criterion.} \item{a}{The 2n-vector of row scores.} \item{bstar}{The m-vector
@@ -63,6 +69,7 @@
 #' Likert scale \code{1:q}} \item{time.total}{Total time taken for the
 #' algorithm over all random starts} \item{call}{The function call.}
 #' \item{data}{The input data object.}
+#' 
 #' @author Pieter C. Schoonees
 #' @references Schoonees, P.C., Velden, M. van de & Groenen, P.J.F. (2013).
 #' Constrained Dual Scaling for Detecting Response Styles in Categorical Data.
@@ -86,7 +93,7 @@ cds <- function (x, K = 4, q = NULL, eps.ALS = 1e-3, eps.G = 1e-7,
                  random.G = FALSE, times.a.multistart = 1, info.level = 1, 
                  mc.preschedule = TRUE, seed = NULL, LB = FALSE, 
                  reorder.grps = TRUE, rescale.a = TRUE, 
-                 tol = sqrt(.Machine$double.eps))
+                 tol = sqrt(.Machine$double.eps), update.G = TRUE)
 {
   time1 <- proc.time()[3]
   cll <- match.call()
@@ -99,7 +106,7 @@ cds <- function (x, K = 4, q = NULL, eps.ALS = 1e-3, eps.G = 1e-7,
                   random.G = random.G, times.a.multistart = times.a.multistart, info.level = info.level, 
                   mc.preschedule = mc.preschedule, seed = seed, LB = LB, 
                   reorder.grps = reorder.grps, rescale.a = rescale.a, 
-                  tol = tol)
+                  tol = tol, update.G = update.G)
     class(res) <- "cdslist"
     return(res)
   }
@@ -131,7 +138,11 @@ cds <- function (x, K = 4, q = NULL, eps.ALS = 1e-3, eps.G = 1e-7,
   if (!is.null(Gstarts))	{
   	  nr.starts.G <- length(Gstarts)
   	  Glst <- Gstarts
+  	  ## Checks 
+  	  if (any(sapply(Gstarts, function(x) ncol(x$G)) != K)) 
+  	    stop("Argument 'K' does not match the number of classes implied by 'Gstarts'.")
   } else {
+    ## Generate random starts
     Glst <- lapply(1:nr.starts.G, function(x) 
       list(i = x, G = diag(K)[sample(x = 1:K, size = n, replace = TRUE), , drop = FALSE]))
   }
@@ -145,7 +156,7 @@ cds <- function (x, K = 4, q = NULL, eps.ALS = 1e-3, eps.G = 1e-7,
         parallel::clusterExport(cl, c("Glst","group.ALS","Lfun", "Lfun.G.upd", "updateG", 
                             "G.start", "nr.starts.a", "maxit", "maxit.ALS", "n", 
                             "m", "q", "Fr.cent.rs", "Mmat", "info.level", "eps.ALS", 
-                            "eps.G", "const", "times.a.multistart", "K", "random.G"),
+                            "eps.G", "const", "times.a.multistart", "K", "random.G", "update.G"),
                             envir = environment())
 #         clusterEvalQ(cl, {require(limSolve)
 #                             require(clue)})
@@ -157,7 +168,7 @@ cds <- function (x, K = 4, q = NULL, eps.ALS = 1e-3, eps.G = 1e-7,
                                       info.level = info.level, eps.ALS = eps.ALS, 
                                       eps.G = eps.G, const = const, 
                                       times.a.multistart = times.a.multistart, 
-                                      K = K, random.G = random.G, tol = tol)
+                                      K = K, random.G = random.G, tol = tol, update.G = update.G)
         else out.lst <- parallel::parLapply(cl, Glst, G.start, nr.starts.a = nr.starts.a, 
                                   astarts = astarts, maxit = maxit, 
                                   maxit.ALS = maxit.ALS, n = n, m = m, q = q, 
@@ -165,7 +176,7 @@ cds <- function (x, K = 4, q = NULL, eps.ALS = 1e-3, eps.G = 1e-7,
                                   info.level = info.level, eps.ALS = eps.ALS, 
                                   eps.G = eps.G, const = const, 
                                   times.a.multistart = times.a.multistart, K = K, 
-                                  random.G = random.G, tol = tol)
+                                  random.G = random.G, tol = tol, update.G = update.G)
         parallel::stopCluster(cl)
         } else {
       if (!is.null(seed)) parallel::mc.reset.stream()  
@@ -175,7 +186,8 @@ cds <- function (x, K = 4, q = NULL, eps.ALS = 1e-3, eps.G = 1e-7,
                           Mmat = Mmat, info.level = info.level, eps.ALS = eps.ALS, 
                           eps.G = eps.G, const = const, 
                           times.a.multistart = times.a.multistart, K = K, 
-                          random.G = random.G, tol = tol, mc.cores = parallel::detectCores(), 
+                          random.G = random.G, tol = tol, update.G = update.G, 
+                          mc.cores = parallel::detectCores(), 
                           mc.preschedule = mc.preschedule)
       }
     } else {
@@ -184,7 +196,7 @@ cds <- function (x, K = 4, q = NULL, eps.ALS = 1e-3, eps.G = 1e-7,
                          maxit.ALS = maxit.ALS, n = n, m = m, q = q, Fr.cent = Fr.cent.rs, 
                          Mmat = Mmat, info.level = info.level, eps.ALS = eps.ALS, eps.G = eps.G,
                          const = const, times.a.multistart = times.a.multistart, K = K, 
-                         random.G = random.G, tol = tol)
+                         random.G = random.G, tol = tol, update.G = update.G)
     }
   
   ## Determine best loss value and retain that one

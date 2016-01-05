@@ -22,13 +22,16 @@
 #' @param random.G The \code{random} argument passed to \code{\link{updateG}}.
 #' @param tol tolerance \code{tol} passed to \code{\link{lsei}} of the
 #' \pkg{limSolve} package)
+#' @param update.G Logical indicating whether or not to update the starting configuration
+#' \code{G} in \code{X}
 #' @keywords multivariate
 #' @export G.start
 G.start <- function(X, nr.starts.a, astarts, maxit, n, m, q, Fr.cent, maxit.ALS, Mmat, eps.G,
-                      info.level, times.a.multistart, eps.ALS, const, K, random.G, tol) {
+                      info.level, times.a.multistart, eps.ALS, const, K, random.G, tol, update.G) {
   time.start <- proc.time()[3]
   G <- X$G
   i <- X$i
+  Gmoves <- -1 ## For convergence check when update.G is FALSE
   iter <- 1
   overall.crit <- rep(NA, maxit)
   
@@ -69,24 +72,28 @@ G.start <- function(X, nr.starts.a, astarts, maxit, n, m, q, Fr.cent, maxit.ALS,
     bwts2 <- out$bwts2
     Fr.bk <- out$Fr.bk
     
-    ### Update G given a and X 
-    
-    out.G <- updateG(G = G, a = a.cur, bwts2 = bwts2, Fr.bk = Fr.bk, 
-                      const = const, n = n, m = m, q = q, random = random.G, 
-                      info.level = info.level)
-    G <- out.G$G
-    K <- out.G$K
-    bkmat <- bkmat[,out.G$classes.left]
-    alphamat <- alphamat[,out.G$classes.left]
-    if(K == 1) {
-      bkmat <- matrix(bkmat, ncol = 1)
-      alphamat <- matrix(alphamat, ncol = 1)
+    ### Update G given a and X only if required
+    if (update.G){
+      out.G <- updateG(G = G, a = a.cur, bwts2 = bwts2, Fr.bk = Fr.bk, 
+                       const = const, n = n, m = m, q = q, random = random.G, 
+                       info.level = info.level)
+      G <- out.G$G
+      K <- out.G$K
+      bkmat <- bkmat[, out.G$classes.left]
+      alphamat <- alphamat[, out.G$classes.left]
+      if(K == 1) {
+        bkmat <- matrix(bkmat, ncol = 1)
+        alphamat <- matrix(alphamat, ncol = 1)
+      }
+      bwts2 <- bwts2[out.G$classes.left]
+      Gmoves <- out.G$moves
     }
-    bwts2 <- bwts2[out.G$classes.left]
+    
+    ## Get criterion value
     overall.crit[iter] <- Lfun(a.cur = a.cur, bkmat = bkmat, G = G, Fr.cent = Fr.cent,
                                n = n, m = m, q = q, const = const, K = K)
     
-    if(iter > 1 && abs(overall.crit[iter - 1] - overall.crit[iter]) < eps.G || out.G$moves == 0) break
+    if(iter > 1 && abs(overall.crit[iter - 1] - overall.crit[iter]) < eps.G || Gmoves == 0) break
     if(iter == maxit) {
         # warning("k-means: Maximum number of iterations reached.")
         break
@@ -103,5 +110,5 @@ G.start <- function(X, nr.starts.a, astarts, maxit, n, m, q, Fr.cent, maxit.ALS,
   if(info.level >  1) cat("= = = =\n\n")
   
   list(G = G, K = K, minloss = crit.G, a = a.cur, bstar = out$b1, bkmat = bkmat, alphamat = t(alphamat), 
-       time.G.start = time.now - time.start, iter.G = iter, loss.G.update = out.G$kloss)
+       time.G.start = time.now - time.start, iter.G = iter, loss.G.update = ifelse(update.G, out.G$kloss, Inf))
 }
