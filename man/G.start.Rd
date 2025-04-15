@@ -4,9 +4,27 @@
 \alias{G.start}
 \title{Constrained Dual Scaling for a Single Random G Start}
 \usage{
-G.start(X, nr.starts.a, astarts, maxit, n, m, q, Fr.cent, maxit.ALS, Mmat,
-  eps.G, info.level, times.a.multistart, eps.ALS, const, K, random.G, tol,
-  update.G)
+G.start(
+  X,
+  nr.starts.a,
+  astarts,
+  maxit,
+  n,
+  m,
+  q,
+  Fr.cent,
+  maxit.ALS,
+  Mmat,
+  eps.G,
+  info.level,
+  times.a.multistart,
+  eps.ALS,
+  const,
+  K,
+  random.G,
+  tol,
+  update.G
+)
 }
 \arguments{
 \item{X}{List of two elements, namely \code{i} giving the number of the start
@@ -44,7 +62,7 @@ and \code{G} given the starting configuration}
 
 \item{random.G}{The \code{random} argument passed to \code{\link{updateG}}.}
 
-\item{tol}{tolerance \code{tol} passed to \code{\link{lsei}} of the
+\item{tol}{tolerance \code{tol} passed to \code{\link[limSolve:lsei]{lsei}} of the
 \pkg{limSolve} package)}
 
 \item{update.G}{Logical indicating whether or not to update the starting configuration
@@ -54,4 +72,3 @@ and \code{G} given the starting configuration}
 Run algorithm for a single G matrix.
 }
 \keyword{multivariate}
-

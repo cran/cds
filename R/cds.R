@@ -47,7 +47,7 @@
 #' names so that the trace of the confusion matrix is maximized.
 #' @param rescale.a logical. Rescale row score to length sqrt(2n) if TRUE
 #' (after the algorithm has converged).
-#' @param tol tolerance \code{tol} passed to \code{\link{lsei}} of the
+#' @param tol tolerance \code{tol} passed to \code{\link[limSolve:lsei]{lsei}} of the
 #' \pkg{limSolve} package. Defaults to \code{sqrt(.Machine$double.eps)}
 #' @param update.G Logical indicating whether or not to update the G matrix
 #' from its starting configuration. Useful when clustering is known apriori or

@@ -15,4 +15,3 @@ unique elements in \code{grp.vec}.}
 \description{
 Creates an indicator matrix from a grouping vector.
 }
-

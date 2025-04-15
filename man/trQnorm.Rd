@@ -24,4 +24,3 @@ Quantile function of the truncated normal distribution.
 Pieter C. Schoonees
 }
 \keyword{multivariate}
-

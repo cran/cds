@@ -29,4 +29,3 @@ Lfun(a.cur, bkmat, G, Fr.cent, n, m, q, const, K)
 Calculate the loss function for constrained dual scaling.
 }
 \keyword{multivariate}
-

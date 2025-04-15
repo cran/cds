@@ -4,10 +4,20 @@
 \alias{datsim}
 \title{Simulate Data for a Single Response Style}
 \usage{
-datsim(nr.indv = 100, m = 5, scales = 1:7, err.coeff = 0.1,
-  resp.style = c(-Inf, 1/7, 2/7, 3/7, 4/7, 5/7, 6/7, Inf), true.mu = NULL,
-  a = 0, b = 1, plot.graph = FALSE, use.copula = FALSE,
-  reverse.thresh = 1, ...)
+datsim(
+  nr.indv = 100,
+  m = 5,
+  scales = 1:7,
+  err.coeff = 0.1,
+  resp.style = c(-Inf, 1/7, 2/7, 3/7, 4/7, 5/7, 6/7, Inf),
+  true.mu = NULL,
+  a = 0,
+  b = 1,
+  plot.graph = FALSE,
+  use.copula = FALSE,
+  reverse.thresh = 1,
+  ...
+)
 }
 \arguments{
 \item{nr.indv}{Integer giving the number of individuals required in the sample.}
@@ -39,13 +49,12 @@ reversed to induce a negative association.}
 \description{
 Simulate data containing a single repsponse style.
 }
-\author{
-Pieter C. Schoonees
-}
 \references{
 Schoonees, P.C., Velden, M. van de & Groenen, P.J.F. (2013).
 Constrained Dual Scaling for Detecting Response Styles in Categorical Data.
 (EI report series EI 2013-10). Rotterdam: Econometric Institute.
 }
+\author{
+Pieter C. Schoonees
+}
 \keyword{multivariate}
-

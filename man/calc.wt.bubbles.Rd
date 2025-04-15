@@ -24,4 +24,3 @@ of the bubble is proportional to the relative frequency of the rating category w
 Pieter Schoonees
 }
 \keyword{utility}
-

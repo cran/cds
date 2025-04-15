@@ -16,4 +16,3 @@
 \description{
 Create a scree plot and bubble plots for all elements in a \code{cdslist} object.
 }
-

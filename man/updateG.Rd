@@ -34,4 +34,3 @@ Updates the grouping matrix.
 Pieter Schoonees
 }
 \keyword{multivariate}
-

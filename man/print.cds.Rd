@@ -15,4 +15,3 @@
 Print method for \code{cds} objects.
 }
 \keyword{utility}
-

@@ -4,9 +4,14 @@
 \alias{rcovmat}
 \title{Construct a Structured Covariance Matrix for Simulations}
 \usage{
-rcovmat(eigs = k:1, m = 10, k = 2, perc = list(c(0.4, 0.2, 0.4), c(0.2,
-  0.4, 0.4)), limits = list(l1 = c(0.5, 1), l2 = c(-1, -0.5), l3 = c(-0.1,
-  0.1)), random = TRUE)
+rcovmat(
+  eigs = k:1,
+  m = 10,
+  k = 2,
+  perc = list(c(0.4, 0.2, 0.4), c(0.2, 0.4, 0.4)),
+  limits = list(l1 = c(0.5, 1), l2 = c(-1, -0.5), l3 = c(-0.1, 0.1)),
+  random = TRUE
+)
 }
 \arguments{
 \item{eigs}{Vector of $k$ eigenvalues.}
@@ -28,4 +33,3 @@ not.}
 Construct a low-rank covariance matrix with specified eigenvalues, where the
 eigenvectors are simulated from uniform distributions.
 }
-

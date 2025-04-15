@@ -15,7 +15,7 @@
 #' @param const The constant part of the loss function.
 #' @param K The number of latent classes.
 #' @param n The number of samples.
-#' @param tol tolerance \code{tol} passed to \code{\link{lsei}} of the
+#' @param tol tolerance \code{tol} passed to \code{\link[limSolve:lsei]{lsei}} of the
 #' \pkg{limSolve} package
 #' @keywords multivariate
 #' @export group.ALS

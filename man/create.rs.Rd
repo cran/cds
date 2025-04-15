@@ -4,8 +4,13 @@
 \alias{create.rs}
 \title{Create a response style}
 \usage{
-create.rs(alpha = matrix(c(1, 2, 1), nrow = 1), nr.scale = 7, tvec = c(0,
-  0.5, 1), xvec = 0:nr.scale/nr.scale, scale = TRUE)
+create.rs(
+  alpha = matrix(c(1, 2, 1), nrow = 1),
+  nr.scale = 7,
+  tvec = c(0, 0.5, 1),
+  xvec = 0:nr.scale/nr.scale,
+  scale = TRUE
+)
 }
 \arguments{
 \item{alpha}{vector of spline coefficients}
@@ -25,4 +30,3 @@ Creates a response style by cutting up a quadratic monotone spline.
 Pieter C. Schoonees
 }
 \keyword{splines}
-

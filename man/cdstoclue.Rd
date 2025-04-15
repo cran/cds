@@ -2,11 +2,11 @@
 % Please edit documentation in R/cdstoclue.R
 \name{cl_class_ids.cds}
 \alias{cl_class_ids.cds}
-\alias{cl_class_ids.cdsdata}
-\alias{is.cl_hard_partition.cds}
-\alias{is.cl_hard_partition.cdsdata}
 \alias{is.cl_partition.cds}
+\alias{is.cl_hard_partition.cds}
+\alias{cl_class_ids.cdsdata}
 \alias{is.cl_partition.cdsdata}
+\alias{is.cl_hard_partition.cdsdata}
 \title{S3 Methods for Integration into \pkg{clue} Framework}
 \usage{
 \method{cl_class_ids}{cds}(x)
@@ -26,7 +26,6 @@
 }
 \description{
 These methods integrate the class \code{cds} into the framwork set out in
-package \pkg{clue}. Use can therefore by made of \code{\link{cl_agreement}} to
+package \pkg{clue}. Use can therefore by made of \code{\link[clue:cl_agreement]{cl_agreement}} to
 calculate concordance measures between different solutions.
 }
-

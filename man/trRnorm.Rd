@@ -21,4 +21,3 @@ trRnorm(n, mu = 0, sd = 1, a = -Inf, b = Inf)
 Random numbers from truncated univariate normal.
 }
 \keyword{multivariate}
-

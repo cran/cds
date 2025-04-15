@@ -13,4 +13,3 @@ create.ind(grp)
 Create an indicator matrix.
 }
 \keyword{utility}
-

@@ -17,4 +17,3 @@ ispline(xvec, tvec = c(0, 0.5, 1), intercept = TRUE)
 Calculate basis functions for monotone quadratic splines.
 }
 \keyword{multivariate}
-

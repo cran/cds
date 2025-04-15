@@ -24,4 +24,3 @@ value decomposition (SVD) (see e.g. the reference).
 \references{
 Gower, J. C. and Hand, D.J. (1996). Biplots (Vol. 54). CRC Press.
 }
-

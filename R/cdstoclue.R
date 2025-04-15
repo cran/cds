@@ -1,7 +1,7 @@
 #' S3 Methods for Integration into \pkg{clue} Framework
 #' 
 #' These methods integrate the class \code{cds} into the framwork set out in
-#' package \pkg{clue}. Use can therefore by made of \code{\link{cl_agreement}} to
+#' package \pkg{clue}. Use can therefore by made of \code{\link[clue:cl_agreement]{cl_agreement}} to
 #' calculate concordance measures between different solutions.
 #' 
 #' @rdname cdstoclue

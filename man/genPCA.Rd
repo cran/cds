@@ -4,9 +4,17 @@
 \alias{genPCA}
 \title{Generate PCA data and Calculates Correlation Matrices}
 \usage{
-genPCA(nr.indv = rep(100, 5), m = 10, q = 7, r = 3, err.coeff = 0.1,
-  alphamat = rbind(c(0.5, 2, 4), c(10, 2, 10), c(1, 2, 1), c(4, 2, 0.5),
-  c(0.1, 2, 0.1))[1:length(nr.indv), ], randomize = TRUE, ...)
+genPCA(
+  nr.indv = rep(100, 5),
+  m = 10,
+  q = 7,
+  r = 3,
+  err.coeff = 0.1,
+  alphamat = rbind(c(0.5, 2, 4), c(10, 2, 10), c(1, 2, 1), c(4, 2, 0.5), c(0.1, 2,
+    0.1))[1:length(nr.indv), ],
+  randomize = TRUE,
+  ...
+)
 }
 \arguments{
 \item{nr.indv}{Vector; number of individuals in each response style group.
@@ -42,4 +50,3 @@ contaminated correlation matrices in a list.
 \author{
 Pieter C. Schoonees
 }
-

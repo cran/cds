@@ -4,7 +4,7 @@
 #' 
 #' @param n Integer; the number of samples to draw.
 #' @param tauvek A vector of association parameters for each of the Clayton copulae 
-#' (see \code{\link{copClayton}}), of the same length as \code{nr.cols}.
+#' (see \code{\link[copula:copClayton]{copClayton}}), of the same length as \code{nr.cols}.
 #' @param nr.cols A vector giving the number of columns to draw from each of the copulae.
 #' @param true.mu A vector giving the mean for each of the columns in the data.
 #' @param err.coeff The standard errors for underlying normal distribution.

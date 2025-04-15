@@ -5,9 +5,16 @@
 \title{Simulate Data with a Specific Principal Components Structure and Response
 Style Contamination}
 \usage{
-simpca(nr.indv = rep(200, 5), m = 10, q = 7, R = rcormat(m = m),
-  err.coeff = 0.1, alphamat = rbind(c(0.5, 2, 4), c(10, 2, 10), c(1, 2, 1),
-  c(4, 2, 0.5), c(0.1, 2, 0.1))[1:length(nr.indv), ], randomize = FALSE)
+simpca(
+  nr.indv = rep(200, 5),
+  m = 10,
+  q = 7,
+  R = rcormat(m = m),
+  err.coeff = 0.1,
+  alphamat = rbind(c(0.5, 2, 4), c(10, 2, 10), c(1, 2, 1), c(4, 2, 0.5), c(0.1, 2,
+    0.1))[1:length(nr.indv), ],
+  randomize = FALSE
+)
 }
 \arguments{
 \item{nr.indv}{Numeric vector of group sizes.}
@@ -30,4 +37,3 @@ or not?}
 Simulate normally distributed data with specific covariance structure and
 randomly sampled means. Adds response style contamination.
 }
-

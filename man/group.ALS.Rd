@@ -4,8 +4,21 @@
 \alias{group.ALS}
 \title{Alternating Least Squares with Groups for Constrained Dual Scaling}
 \usage{
-group.ALS(a, m, q, G, Fr.cent, eps = 0.1, maxit = 50, Mmat,
-  info.level = 2, const, K, n, tol)
+group.ALS(
+  a,
+  m,
+  q,
+  G,
+  Fr.cent,
+  eps = 0.1,
+  maxit = 50,
+  Mmat,
+  info.level = 2,
+  const,
+  K,
+  n,
+  tol
+)
 }
 \arguments{
 \item{a}{A \code{2n}-vector of row scores.}
@@ -32,7 +45,7 @@ group.ALS(a, m, q, G, Fr.cent, eps = 0.1, maxit = 50, Mmat,
 
 \item{n}{The number of samples.}
 
-\item{tol}{tolerance \code{tol} passed to \code{\link{lsei}} of the
+\item{tol}{tolerance \code{tol} passed to \code{\link[limSolve:lsei]{lsei}} of the
 \pkg{limSolve} package}
 }
 \description{
@@ -40,4 +53,3 @@ Alternating least-sqaures for estimating row and column scores in constrained
 dual scaling, where different groups are allowed for.
 }
 \keyword{multivariate}
-

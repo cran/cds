@@ -35,4 +35,3 @@ addbounds(mat, q = 9)
 \author{
 Pieter C. Schoonees
 }
-

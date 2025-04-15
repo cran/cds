@@ -29,4 +29,3 @@ correlation matrix results, the rows are normalized.
 R <- rcormat(m = 10)$R
 eigen(R)
 }
-

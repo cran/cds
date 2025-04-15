@@ -4,12 +4,30 @@
 \alias{cds}
 \title{Constrained Dual Scaling for Successive Categories with Groups}
 \usage{
-cds(x, K = 4, q = NULL, eps.ALS = 0.001, eps.G = 1e-07,
-  nr.starts.G = 20, nr.starts.a = 5, maxit.ALS = 20, maxit = 50,
-  Gstarts = NULL, astarts = NULL, parallel = FALSE, random.G = FALSE,
-  times.a.multistart = 1, info.level = 1, mc.preschedule = TRUE,
-  seed = NULL, LB = FALSE, reorder.grps = TRUE, rescale.a = TRUE,
-  tol = sqrt(.Machine$double.eps), update.G = TRUE)
+cds(
+  x,
+  K = 4,
+  q = NULL,
+  eps.ALS = 0.001,
+  eps.G = 1e-07,
+  nr.starts.G = 20,
+  nr.starts.a = 5,
+  maxit.ALS = 20,
+  maxit = 50,
+  Gstarts = NULL,
+  astarts = NULL,
+  parallel = FALSE,
+  random.G = FALSE,
+  times.a.multistart = 1,
+  info.level = 1,
+  mc.preschedule = TRUE,
+  seed = NULL,
+  LB = FALSE,
+  reorder.grps = TRUE,
+  rescale.a = TRUE,
+  tol = sqrt(.Machine$double.eps),
+  update.G = TRUE
+)
 }
 \arguments{
 \item{x}{an object of class \code{"dsdata"} (see \code{cds.sim()}),
@@ -72,7 +90,7 @@ names so that the trace of the confusion matrix is maximized.}
 \item{rescale.a}{logical. Rescale row score to length sqrt(2n) if TRUE
 (after the algorithm has converged).}
 
-\item{tol}{tolerance \code{tol} passed to \code{\link{lsei}} of the
+\item{tol}{tolerance \code{tol} passed to \code{\link[limSolve:lsei]{lsei}} of the
 \pkg{limSolve} package. Defaults to \code{sqrt(.Machine$double.eps)}}
 
 \item{update.G}{Logical indicating whether or not to update the G matrix
@@ -113,13 +131,12 @@ dat <- cds.sim()
 out <- cds(dat)
 
 }
-\author{
-Pieter C. Schoonees
-}
 \references{
 Schoonees, P.C., Velden, M. van de & Groenen, P.J.F. (2013).
 Constrained Dual Scaling for Detecting Response Styles in Categorical Data.
 (EI report series EI 2013-10). Rotterdam: Econometric Institute.
 }
+\author{
+Pieter C. Schoonees
+}
 \keyword{multivariate}
-

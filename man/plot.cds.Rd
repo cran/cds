@@ -4,11 +4,24 @@
 \alias{plot.cds}
 \title{Plot cds Objects}
 \usage{
-\method{plot}{cds}(x, which = 1L:3L, type = "l", lty = 1, lwd = 2,
-  show.legend = TRUE, col = colorspace::rainbow_hcl(nr), bty.legend = "n",
-  intercept = ncol(x$alphamat) == 4, scale = FALSE, add = FALSE,
-  exp.factor = 1.2, bubble.fact = 0.12, cont.factor = 0.01, pch = 15,
-  ...)
+\method{plot}{cds}(
+  x,
+  which = 1L:3L,
+  type = "l",
+  lty = 1,
+  lwd = 2,
+  show.legend = TRUE,
+  col = colorspace::rainbow_hcl(nr),
+  bty.legend = "n",
+  intercept = ncol(x$alphamat) == 4,
+  scale = FALSE,
+  add = FALSE,
+  exp.factor = 1.2,
+  bubble.fact = 0.12,
+  cont.factor = 0.01,
+  pch = 15,
+  ...
+)
 }
 \arguments{
 \item{x}{An object of class \code{cds}.}
@@ -48,4 +61,3 @@ equal to zero.}
 Plot method for \code{cds} objects
 }
 \keyword{utility}
-

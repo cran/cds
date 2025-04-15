@@ -16,4 +16,3 @@ items are \code{1:q}.}
 Create a cdsdata object from a data frame or matrix.
 }
 \keyword{multivariate}
-

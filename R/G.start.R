@@ -20,7 +20,7 @@
 #' @param const The constant part of the loss function.
 #' @param K The number of groups.
 #' @param random.G The \code{random} argument passed to \code{\link{updateG}}.
-#' @param tol tolerance \code{tol} passed to \code{\link{lsei}} of the
+#' @param tol tolerance \code{tol} passed to \code{\link[limSolve:lsei]{lsei}} of the
 #' \pkg{limSolve} package)
 #' @param update.G Logical indicating whether or not to update the starting configuration
 #' \code{G} in \code{X}

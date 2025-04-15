@@ -14,4 +14,3 @@
 \description{
 This is a simple print method  for object that inherits from the class \code{cdsdata}.
 }
-

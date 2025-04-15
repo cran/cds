@@ -31,4 +31,3 @@ match as closely as possible the matrix \code{procr.target} through
 R <- rcormat(10, r = 3)
 all.equal(R$L, approxloads(R$R, r = 3, procr.target = R$L))
 }
-

@@ -28,4 +28,3 @@ Loss function used for updating G. This is not equivalent to the original loss f
 only a part of the total loss depends on G.
 }
 \keyword{multivariate}
-

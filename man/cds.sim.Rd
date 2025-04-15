@@ -4,10 +4,18 @@
 \alias{cds.sim}
 \title{Grouped Simulation with Response Styles}
 \usage{
-cds.sim(nr.indv = c(100, 100, 100), m = 25, scales = 1:7,
-  err.coeff = 0.1, alphamat = rbind(c(4, 4, 1), c(1, 4, 4), c(1, 2, 1)),
-  true.mu = NULL, random = TRUE, same.mu = TRUE, use.copula = FALSE,
-  reverse.thresh = 1)
+cds.sim(
+  nr.indv = c(100, 100, 100),
+  m = 25,
+  scales = 1:7,
+  err.coeff = 0.1,
+  alphamat = rbind(c(4, 4, 1), c(1, 4, 4), c(1, 2, 1)),
+  true.mu = NULL,
+  random = TRUE,
+  same.mu = TRUE,
+  use.copula = FALSE,
+  reverse.thresh = 1
+)
 }
 \arguments{
 \item{nr.indv}{A vector giving the number of respondents in each group.}
@@ -64,4 +72,3 @@ Simulate response data for a group of response styles.
 \code{\link{createcdsdata}}
 }
 \keyword{multivariate}
-
